@@ -538,7 +538,7 @@ public class GameOfLifeCruel : MonoBehaviour {
 		updateDebug ("Submitted");
 
 		// bob helps out? 
-		if ((Info.GetBatteryCount () == 6) && (Info.GetBatteryHolderCount () == 3) && (Bob == true) && ((Info.IsIndicatorPresent(Indicator.BOB)) && (!Info.IsIndicatorOn(Indicator.BOB)))) {
+		if ((Info.GetBatteryCount () == 6) && (Info.GetBatteryHolderCount () == 3) && (Bob == true) && (Info.IsIndicatorOff(Indicator.BOB))) {
 			Module.HandlePass ();
 			Log("Bob has assisted you. Time to party!");
 			for (int i = 0; i < 48; i++) {
