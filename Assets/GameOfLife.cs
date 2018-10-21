@@ -382,7 +382,7 @@ public class GameOfLife : MonoBehaviour {
 	}
 
 	#pragma warning disable 414
-    private string TwitchHelpMessage = "Clear the grid: !{0} clear. Toggle a cell by giving it's coordinate: !{0} a1 b2. Submit your answer: !{0} submit. Reset back to the intial state: !{0} reset. All commands are chainable.";
+    private string TwitchHelpMessage = "Clear the grid: !{0} clear. Toggle a cell by giving its coordinate: !{0} a1 b2. Submit your answer: !{0} submit. Reset back to the intial state: !{0} reset. All commands are chainable.";
 	#pragma warning restore 414
 
     List<KMSelectable> ProcessTwitchCommand(string inputCommand)
