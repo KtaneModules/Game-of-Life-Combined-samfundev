@@ -18,10 +18,10 @@ MonoBehaviour:
     Idea by WarioLGP\r\nOriginally implemented by Eotall\r\nFixes and improvements
     by samfun123\r\n\r\n[h1]Original Mods:[/h1]\r\nThis mod replaces both of the following
     mods and isn't compatible with them. You will need to unsubscribe from:\n[list]\r\n[*]
-    [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1133658954]Simple
-    Game Of Life[/url]\r\n[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1133661470]Cruel
-    Game Of Life[/url]\r\n[/list]\r\n\r\n[h1]Module IDs[/h1]\r\nGameOfLifeSimple and
-    GameOfLifeCruel"
+    [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1133658954]Game Of
+    Life Simple[/url]\r\n[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1133661470]Game
+    Of Life Cruel[/url]\r\n[/list]\r\n\r\n[h1]Module IDs[/h1]\r\nGameOfLifeSimple
+    and GameOfLifeCruel"
   version: 1.2c
   outputFolder: build
   previewImage: {fileID: 2800000, guid: 3355bab71cd882a47a7b2f810e35e2d5, type: 3}

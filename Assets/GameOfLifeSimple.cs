@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Random = UnityEngine.Random;
 
-public class GameOfLife : MonoBehaviour {
+public class GameOfLifeSimple : MonoBehaviour {
 
 	public KMBombInfo Info;
 	public KMBombModule Module;
