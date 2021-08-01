@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using UnityEngine;
 using System.Linq;
 using System.Collections;
@@ -423,4 +423,35 @@ public class GameOfLifeSimple : MonoBehaviour {
 
 		return buttons.Count > 0 ? buttons : null;
     }
+
+	IEnumerator TwitchHandleForcedSolve()
+	{
+		for (int i = 0; i < 48; i++)
+		{
+			ColorsSubmitted[i] = BtnColor[i].material.color;
+		}
+
+		updateReset();
+		simulateGeneration();
+
+		Color[] correctSolution = new Color[48];
+		for (int i = 0; i < 48; i++)
+		{
+			correctSolution[i] = BtnColor[i].material.color;
+			BtnColor[i].material.color = ColorsSubmitted[i];
+		}
+
+		for (int i = 0; i < 48; i++)
+		{
+			while (BtnColor[i].material.color != correctSolution[i])
+			{
+				Btn[i].OnInteract();
+				yield return new WaitForSeconds(0.1f);
+			}
+		}
+
+		Submit.OnInteract();
+		while (!isSolved)
+			yield return null;
+	}
 }

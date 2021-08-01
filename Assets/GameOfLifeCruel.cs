@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using UnityEngine;
 using System.Linq;
 using System.Collections;
@@ -647,5 +647,60 @@ public class GameOfLifeCruel : MonoBehaviour {
 		}
 
 		return buttons.Count > 0 ? buttons.ToArray() : null;
+	}
+
+	IEnumerator TwitchHandleForcedSolve()
+	{
+		int[] currentColors1 = new int[48];
+		int[] currentColors2 = new int[48];
+		for (int i = 0; i < 48; i++)
+		{
+			currentColors1[i] = BtnColor1[i];
+			currentColors2[i] = BtnColor2[i];
+		}
+
+		for (int r = 0; r < 48; r++) {
+			BtnColor1 [r] = BtnColor1init [r];
+			BtnColor2 [r] = BtnColor2init [r];
+		}
+
+		updateBool();
+		int ruleHash = Rules.Select((state, index) => state ? 1 << index : 0).Sum();
+		calculateColors();
+		updateSquares();
+		simulateGeneration();
+
+		int[] correctSolution = new int[48];
+		for (int i = 0; i < 48; i++)
+		{
+			correctSolution[i] = BtnColor1[i];
+
+			BtnColor1[i] = currentColors1[i];
+			BtnColor2[i] = currentColors2[i];
+		}
+
+		updateSquares();
+
+		for (int i = 0; i < 48; i++)
+		{
+			while (BtnColor1[i] != correctSolution[i] || BtnColor2[i] != correctSolution[i])
+			{
+				Btn[i].OnInteract();
+				yield return new WaitForSeconds(0.1f);
+			}
+		}
+
+		// Make sure the rules haven't changed while we were putting in the answer.
+		updateBool();
+		int currentHash = Rules.Select((state, index) => state ? 1 << index : 0).Sum();
+		if (ruleHash != currentHash)
+		{
+			yield return TwitchHandleForcedSolve();
+			yield break;
+		}
+
+		Submit.OnInteract();
+		while (!isSolved)
+			yield return null;
 	}
 }
