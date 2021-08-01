@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 using System.Linq;
 using System.Collections;
@@ -79,7 +79,7 @@ public class GameOfLifeCruel : MonoBehaviour {
 			Clear.AddInteractionPunch ();
 			Bob = false;
 
-			if (isActive && !isSolved && !isSubmitting)
+			if (isActive && !isSubmitting)
 			{
 				for (int i = 0; i < 48; i++)
 				{
@@ -114,7 +114,7 @@ public class GameOfLifeCruel : MonoBehaviour {
 			int j = i;
 			Btn[i].OnInteract += delegate () {
 				Audio.PlayGameSoundAtTransform (KMSoundOverride.SoundEffect.ButtonPress, Btn[j].transform);
-				if (isActive && !isSolved && !isSubmitting) {
+				if (isActive && !isSubmitting) {
 					handleSquare (j);
 				}
 				return false;
